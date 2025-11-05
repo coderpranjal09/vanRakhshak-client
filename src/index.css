@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Forest Fire Detection Dashboard Design System
+All colors MUST be HSL for proper theme consistency.
+*/
+
+@layer base {
+  :root {
+    /* Forest Theme Colors */
+    --background: 150 15% 96%;
+    --foreground: 150 30% 15%;
+
+    --card: 150 25% 98%;
+    --card-foreground: 150 30% 20%;
+
+    --popover: 150 25% 98%;
+    --popover-foreground: 150 30% 20%;
+
+    --primary: 130 60% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 120 20% 85%;
+    --secondary-foreground: 150 30% 25%;
+
+    --muted: 120 20% 90%;
+    --muted-foreground: 150 15% 45%;
+
+    --accent: 140 40% 75%;
+    --accent-foreground: 150 30% 25%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 20% 85%;
+    --input: 120 20% 92%;
+    --ring: 130 60% 35%;
+
+    /* Forest specific colors */
+    --forest-primary: 130 60% 35%;
+    --forest-secondary: 90 30% 45%;
+    --forest-accent: 158 39% 92%; /* #e6f2f0 */
+    --forest-warning: 45 95% 55%;
+    --forest-danger: 0 84% 55%;
+    --forest-success: 120 60% 50%;
+    
+    /* Glass morphism */
+    --glass-bg: 150 25% 98% / 0.8;
+    --glass-border: 150 25% 85% / 0.3;
+    --glass-shadow: 150 30% 15% / 0.1;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 150 25% 8%;
+    --foreground: 150 15% 90%;
+
+    --card: 150 25% 10%;
+    --card-foreground: 150 15% 90%;
+
+    --popover: 150 25% 10%;
+    --popover-foreground: 150 15% 90%;
+
+    --primary: 130 60% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 20% 15%;
+    --secondary-foreground: 150 15% 85%;
+
+    --muted: 150 20% 15%;
+    --muted-foreground: 150 10% 65%;
+
+    --accent: 140 40% 25%;
+    --accent-foreground: 150 15% 85%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 20% 20%;
+    --input: 150 20% 15%;
+    --ring: 130 60% 45%;
+
+    /* Dark forest colors */
+    --forest-primary: 130 60% 45%;
+    --forest-secondary: 90 30% 35%;
+    --forest-accent: 140 40% 35%;
+    --forest-warning: 45 95% 55%;
+    --forest-danger: 0 84% 55%;
+    --forest-success: 120 60% 50%;
+    
+    /* Dark glass morphism */
+    --glass-bg: 150 25% 10% / 0.8;
+    --glass-border: 150 25% 25% / 0.3;
+    --glass-shadow: 0 0% 0% / 0.3;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: url('https://images.nationalgeographic.org/image/upload/v1638892272/EducationHub/photos/hoh-river-valley.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  /* Glass morphism utilities */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 8px 32px hsl(var(--glass-shadow));
+  }
+  
+  .glass-card {
+    @apply glass rounded-lg;
+  }
+  
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--forest-success) / 0.5); }
+    50% { box-shadow: 0 0 20px hsl(var(--forest-success) / 0.8); }
+  }
+}
